@@ -1,0 +1,3 @@
+Pass videoURL parameter with source video URL (m3u8 format)
+
+You can mass MP4 video URL as well if you want to test playability of video using videojs
