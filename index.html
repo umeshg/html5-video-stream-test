@@ -11,7 +11,7 @@
   </video>
   <script>
     const videoURL = new URLSearchParams(window.location.search).get('videoURL');
-    console.error('Video URL:', videoURL);
+    console.log('Video URL:', videoURL);
     const videoPlayer = document.getElementById('myVideo');
     
     function isM3U8(url) {
@@ -19,9 +19,13 @@
     }
     
     if (isM3U8(videoURL)) {
+      console.log('Video URL is isM3U8');
+
       videoPlayer.src = videoURL;
       videoPlayer.type = 'application/x-mpegURL'; 
     } else if (videoURL.endsWith('.mp4')) {
+      console.log('Video URL is MP4');
+
       videoPlayer.src = videoURL;
       videoPlayer.type = 'video/mp4';
     } else {
