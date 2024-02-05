@@ -6,7 +6,9 @@
   <title>Video Player</title>
 </head>
 <body>
-  <video id="myVideo" controls></video>
+  <video width="352" height="198" controls>
+    <source id="myVideo">
+  </video>
   <script>
     const videoURL = new URLSearchParams(window.location.search).get('videoURL');
     console.error('Video URL:', videoURL);
@@ -18,7 +20,7 @@
     
     if (isM3U8(videoURL)) {
       videoPlayer.src = videoURL;
-      videoPlayer.type = 'application/vnd.apple.mpegurl';
+      videoPlayer.type = 'application/x-mpegURL'; 
     } else if (videoURL.endsWith('.mp4')) {
       videoPlayer.src = videoURL;
       videoPlayer.type = 'video/mp4';
