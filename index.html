@@ -9,6 +9,7 @@
   <video id="myVideo" controls></video>
   <script>
     const videoURL = new URLSearchParams(window.location.search).get('videoURL');
+    console.error('Video URL:', videoURL);
     const videoPlayer = document.getElementById('myVideo');
     
     function isM3U8(url) {
@@ -26,7 +27,7 @@
       console.error('Unsupported video format:', videoURL);
     }
     
-    videoPlayer.play();
+    // videoPlayer.play();
   </script>
 </body>
 </html>
