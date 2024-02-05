@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player</title>
+</head>
+<body>
+  <video id="myVideo" controls></video>
+  <script>
+    const videoURL = new URLSearchParams(window.location.search).get('videoURL');
+    const videoPlayer = document.getElementById('myVideo');
+    
+    function isM3U8(url) {
+      return url.toLowerCase().endsWith('.m3u8');
+    }
+    
+    if (isM3U8(videoURL)) {
+      videoPlayer.src = videoURL;
+      videoPlayer.type = 'application/vnd.apple.mpegurl';
+    } else if (videoURL.endsWith('.mp4')) {
+      videoPlayer.src = videoURL;
+      videoPlayer.type = 'video/mp4';
+    } else {
+      // Handle unsupported video format
+      console.error('Unsupported video format:', videoURL);
+    }
+    
+    videoPlayer.play();
+  </script>
+</body>
+</html>
